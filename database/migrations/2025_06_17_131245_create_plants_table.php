@@ -7,7 +7,6 @@ use App\Models\Division;
 use App\Models\Family;
 use App\Models\Genus;
 use App\Models\Kingdom;
-use App\Models\Plant;
 use App\Models\Species;
 use App\Models\Subkingdom;
 use App\Models\TaxonomicClass;
@@ -16,21 +15,24 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration {
+return new class() extends Migration
+{
     public function up(): void
     {
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
-            $table->string('common_name')->nullable();
+            $table->string('common_name')->nullable()->unique();
             $table->string('scientific_name')->unique();
-            $table->foreignIdFor(Division::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Family::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Genus::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Kingdom::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Species::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(Subkingdom::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(TaxonomicClass::class)->nullable()->constrained()->nullOnDelete();
-            $table->foreignIdFor(TaxonomicOrder::class)->nullable()->constrained()->nullOnDelete();
+            $table->text('description')->nullable();
+            $table->text('anecdote')->nullable();
+            $table->foreignIdFor(Division::class)->nullable();
+            $table->foreignIdFor(Family::class)->nullable();
+            $table->foreignIdFor(Genus::class)->nullable();
+            $table->foreignIdFor(Kingdom::class)->nullable();
+            $table->foreignIdFor(Species::class)->nullable();
+            $table->foreignIdFor(Subkingdom::class)->nullable();
+            $table->foreignIdFor(TaxonomicClass::class)->nullable();
+            $table->foreignIdFor(TaxonomicOrder::class)->nullable();
             $table->timestamps();
         });
 
@@ -52,31 +54,31 @@ return new class() extends Migration {
             $table->timestamps(false);
         });
 
-        Schema::create('taxonomic_order', function (Blueprint $table) {
+        Schema::create('taxonomic_orders', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
             $table->timestamps(false);
         });
 
-        Schema::create('taxonomic_class', function (Blueprint $table) {
+        Schema::create('taxonomic_classes', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
             $table->timestamps(false);
         });
 
-        Schema::create('division', function (Blueprint $table) {
+        Schema::create('divisions', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
             $table->timestamps(false);
         });
 
-        Schema::create('kingdom', function (Blueprint $table) {
+        Schema::create('kingdoms', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
             $table->timestamps(false);
         });
 
-        Schema::create('subkingdom', function (Blueprint $table) {
+        Schema::create('subkingdoms', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
             $table->timestamps(false);
@@ -94,18 +96,12 @@ return new class() extends Migration {
             $table->string('path');
 
             // The season for this specific photo. Using an ENUM for data integrity.
-            $table->enum('season', SeasonEnum::cases());
+            $table->enum('season', SeasonEnum::toArray());
 
             // Optional: a caption for the photo
             $table->string('caption')->nullable();
 
             $table->timestamps();
         });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('plants');
-        Schema::dropIfExists('photos');
     }
 };

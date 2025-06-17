@@ -32,10 +32,12 @@ final class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login(Login::class)
             ->spa()
+            ->resourceCreatePageRedirect('view')
+            ->resourceEditPageRedirect('view')
             ->sidebarCollapsibleOnDesktop()
 //            ->topNavigation()
             ->colors([
-                'primary' => Color::Blue,
+                'primary' => Color::Green,
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
