@@ -1,10 +1,12 @@
 <?php
 
+
+
 namespace App\Filament\Resources\TaxonomicClasses\Schemas;
 
 use Filament\Schemas\Schema;
 
-class TaxonomicClassInfolist
+final class TaxonomicClassInfolist
 {
     public static function configure(Schema $schema): Schema
     {

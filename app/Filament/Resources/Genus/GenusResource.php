@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Genus;
 
 use App\Filament\Resources\Genus\Pages\CreateGenus;
@@ -16,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class GenusResource extends Resource
+final class GenusResource extends Resource
 {
     protected static ?string $model = Genus::class;
 

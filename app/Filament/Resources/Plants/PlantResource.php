@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Plants;
 
 use App\Filament\Resources\Plants\Pages\CreatePlant;
@@ -16,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class PlantResource extends Resource
+final class PlantResource extends Resource
 {
     protected static ?string $model = Plant::class;
 

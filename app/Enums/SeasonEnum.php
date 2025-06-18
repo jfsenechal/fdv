@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Enums;
 
 use BackedEnum;
@@ -8,7 +10,7 @@ use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 use Illuminate\Contracts\Support\Htmlable;
 
-enum SeasonEnum: string implements HasColor, HasLabel, HasIcon
+enum SeasonEnum: string implements HasColor, HasIcon, HasLabel
 {
     case Spring = 'spring';
     case Summer = 'summer';

@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Species\Tables;
 
 use Filament\Actions\BulkActionGroup;
@@ -9,7 +11,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SpeciesTable
+final class SpeciesTable
 {
     public static function configure(Table $table): Table
     {

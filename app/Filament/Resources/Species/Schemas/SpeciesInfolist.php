@@ -1,11 +1,13 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Species\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class SpeciesInfolist
+final class SpeciesInfolist
 {
     public static function configure(Schema $schema): Schema
     {

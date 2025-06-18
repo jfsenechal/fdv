@@ -1,10 +1,12 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Kingdoms\Schemas;
 
 use Filament\Schemas\Schema;
 
-class KingdomInfolist
+final class KingdomInfolist
 {
     public static function configure(Schema $schema): Schema
     {

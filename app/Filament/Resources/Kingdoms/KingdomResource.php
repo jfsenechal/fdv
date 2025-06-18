@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Kingdoms;
 
 use App\Filament\Resources\Kingdoms\Pages\CreateKingdom;
@@ -16,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class KingdomResource extends Resource
+final class KingdomResource extends Resource
 {
     protected static ?string $model = Kingdom::class;
 

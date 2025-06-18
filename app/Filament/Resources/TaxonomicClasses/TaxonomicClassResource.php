@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Filament\Resources\TaxonomicClasses;
 
 use App\Filament\Resources\TaxonomicClasses\Pages\CreateTaxonomicClass;
@@ -16,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class TaxonomicClassResource extends Resource
+final class TaxonomicClassResource extends Resource
 {
     protected static ?string $model = TaxonomicClass::class;
 

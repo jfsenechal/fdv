@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Filament\Resources\TaxonomicOrders;
 
 use App\Filament\Resources\TaxonomicOrders\Pages\CreateTaxonomicOrder;
@@ -16,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class TaxonomicOrderResource extends Resource
+final class TaxonomicOrderResource extends Resource
 {
     protected static ?string $model = TaxonomicOrder::class;
 

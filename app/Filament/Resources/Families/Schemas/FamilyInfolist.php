@@ -1,10 +1,12 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Families\Schemas;
 
 use Filament\Schemas\Schema;
 
-class FamilyInfolist
+final class FamilyInfolist
 {
     public static function configure(Schema $schema): Schema
     {

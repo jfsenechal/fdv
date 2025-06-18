@@ -1,12 +1,14 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Divisions\Pages;
 
 use App\Filament\Resources\Divisions\DivisionResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-class ViewDivision extends ViewRecord
+final class ViewDivision extends ViewRecord
 {
     protected static string $resource = DivisionResource::class;
 

@@ -1,11 +1,13 @@
 <?php
 
+
+
 namespace App\Filament\Resources\TaxonomicClasses\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class TaxonomicClassForm
+final class TaxonomicClassForm
 {
     public static function configure(Schema $schema): Schema
     {

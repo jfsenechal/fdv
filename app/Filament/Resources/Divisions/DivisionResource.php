@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Divisions;
 
 use App\Filament\Resources\Divisions\Pages\CreateDivision;
@@ -16,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class DivisionResource extends Resource
+final class DivisionResource extends Resource
 {
     protected static ?string $model = Division::class;
 

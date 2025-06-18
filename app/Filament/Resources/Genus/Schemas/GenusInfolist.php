@@ -1,10 +1,12 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Genus\Schemas;
 
 use Filament\Schemas\Schema;
 
-class GenusInfolist
+final class GenusInfolist
 {
     public static function configure(Schema $schema): Schema
     {

@@ -1,12 +1,14 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Plants\Pages;
 
 use App\Filament\Resources\Plants\PlantResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-class ViewPlant extends ViewRecord
+final class ViewPlant extends ViewRecord
 {
     protected static string $resource = PlantResource::class;
 

@@ -1,11 +1,13 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Families\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class FamilyForm
+final class FamilyForm
 {
     public static function configure(Schema $schema): Schema
     {

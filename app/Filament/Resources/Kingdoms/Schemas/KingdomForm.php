@@ -1,11 +1,13 @@
 <?php
 
+
+
 namespace App\Filament\Resources\Kingdoms\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class KingdomForm
+final class KingdomForm
 {
     public static function configure(Schema $schema): Schema
     {
