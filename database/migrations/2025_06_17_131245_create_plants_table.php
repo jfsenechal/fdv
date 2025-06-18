@@ -5,7 +5,7 @@ declare(strict_types=1);
 use App\Enums\SeasonEnum;
 use App\Models\Division;
 use App\Models\Family;
-use App\Models\Genus;
+use App\Models\Kind;
 use App\Models\Kingdom;
 use App\Models\Species;
 use App\Models\Subkingdom;
@@ -27,7 +27,7 @@ return new class() extends Migration
             $table->text('anecdote')->nullable();
             $table->foreignIdFor(Division::class)->nullable();
             $table->foreignIdFor(Family::class)->nullable();
-            $table->foreignIdFor(Genus::class)->nullable();
+            $table->foreignIdFor(Kind::class)->nullable();
             $table->foreignIdFor(Kingdom::class)->nullable();
             $table->foreignIdFor(Species::class)->nullable();
             $table->foreignIdFor(Subkingdom::class)->nullable();
@@ -42,7 +42,7 @@ return new class() extends Migration
             $table->timestamps(false);
         });
 
-        Schema::create('genus', function (Blueprint $table) {
+        Schema::create('kinds', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
             $table->timestamps(false);

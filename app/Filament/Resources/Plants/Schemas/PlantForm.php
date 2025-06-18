@@ -1,9 +1,9 @@
 <?php
 
 
-
 namespace App\Filament\Resources\Plants\Schemas;
 
+use App\Filament\Forms\FormOptions;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -47,9 +47,9 @@ final class PlantForm
                                 TextInput::make('name')
                                     ->required(),
                             ]),
-                        Select::make('genus_id')
+                        Select::make('kind_id')
                             ->label('Genre')
-                            ->relationship('genus', 'name')
+                            ->relationship('kind', 'name')
                             ->default(null)
                             ->searchable()
                             ->preload()
@@ -112,10 +112,12 @@ final class PlantForm
                     ->components([
                         RichEditor::make('description')
                             ->default(null)
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
                         RichEditor::make('anecdote')
                             ->default(null)
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
                     ]),
             ]);
     }

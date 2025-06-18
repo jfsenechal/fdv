@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Database\Factories\GenusFactory;
+use Database\Factories\KindFactory;
 use Illuminate\Database\Eloquent\Attributes\UseFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-#[UseFactory(GenusFactory::class)]
-final class Genus extends Model
+#[UseFactory(KindFactory::class)]
+final class Kind extends Model
 {
     use HasFactory;
 

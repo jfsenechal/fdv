@@ -22,7 +22,7 @@ final class Plant extends Model
         'description',
         'anecdote',
         'family_id',
-        'genus_id',
+        'kind_id',
         'species_id',
         'taxonomic_order_id',
         'taxonomic_class_id',
@@ -48,9 +48,9 @@ final class Plant extends Model
         return $this->belongsTo(Family::class);
     }
 
-    public function genus(): BelongsTo
+    public function kind(): BelongsTo
     {
-        return $this->belongsTo(Genus::class);
+        return $this->belongsTo(Kind::class);
     }
 
     public function species(): BelongsTo
