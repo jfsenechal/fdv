@@ -21,8 +21,8 @@ return new class() extends Migration
     {
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
-            $table->string('common_name')->nullable()->unique();
-            $table->string('scientific_name')->unique();
+            $table->string('common_name')->unique();
+            $table->string('scientific_name')->nullable()->unique();
             $table->text('description')->nullable();
             $table->text('anecdote')->nullable();
             $table->foreignIdFor(Division::class)->nullable();

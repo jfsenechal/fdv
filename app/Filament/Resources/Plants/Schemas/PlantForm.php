@@ -7,12 +7,15 @@ use App\Enums\SeasonEnum;
 use App\Filament\Forms\FormOptions;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Flex;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 final class PlantForm
@@ -26,13 +29,32 @@ final class PlantForm
                     ->components([
                         TextInput::make('common_name')
                             ->label('Nom commun')
-                            ->default(null),
-                        TextInput::make('scientific_name')
-                            ->label('Nom latin')
                             ->required(),
+                        TextInput::make('scientific_name')
+                            ->label('Nom latin'),
                     ]),
                 Fieldset::make('Classification')
                     ->components([
+                        Select::make('kingdom_id')
+                            ->label('Règne')
+                            ->relationship('kingdom', 'name')
+                            ->default(1)
+                            ->preload()
+                            ->searchable()
+                            ->createOptionForm([
+                                TextInput::make('name')
+                                    ->required(),
+                            ]),
+                        Select::make('subkingdom_id')
+                            ->label('Sous règne')
+                            ->relationship('subkingdom', 'name')
+                            ->default(null)
+                            ->preload()
+                            ->searchable()
+                            ->createOptionForm([
+                                TextInput::make('name')
+                                    ->required(),
+                            ]),
                         Select::make('family_id')
                             ->label('Famille')
                             ->relationship('family', 'name')
@@ -65,26 +87,6 @@ final class PlantForm
                         Select::make('species_id')
                             ->label('Espèce')
                             ->relationship('species', 'name')
-                            ->default(null)
-                            ->preload()
-                            ->searchable()
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->required(),
-                            ]),
-                        Select::make('kingdom_id')
-                            ->label('Règne')
-                            ->relationship('kingdom', 'name')
-                            ->default(null)
-                            ->preload()
-                            ->searchable()
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->required(),
-                            ]),
-                        Select::make('subkingdom_id')
-                            ->label('Sous règne')
-                            ->relationship('subkingdom', 'name')
                             ->default(null)
                             ->preload()
                             ->searchable()
@@ -127,23 +129,29 @@ final class PlantForm
                 Fieldset::make('Photos')
                     ->components([
                         Repeater::make('photos')
+                            ->addActionLabel('Ajouter la photo')
                             ->relationship()
                             ->orderColumn()
                             ->schema([
-                                FileUpload::make('photos')
-                                    ->label('Photo')->disk('public')
+                                FileUpload::make('path')
+                                    ->label('Photo')
+                                    ->disk('public')
                                     ->directory('uploads')
                                     ->previewable(false)
                                     ->openable()
-                                    ->downloadable()
-                                    ->image(),
-                                CheckboxList::make('season')
+                                    //->image()
+                                    ->downloadable(),
+                                Radio::make('season')
                                     ->label('Saison')
                                     ->options(SeasonEnum::class),
-                                Textarea::make('caption')
-                                    ->label('Légende'),
-                                Textarea::make('credit')
-                                    ->label('Crédit'),
+                                Flex::make([
+                                    Section::make([
+                                        Textarea::make('caption')
+                                            ->label('Légende'),
+                                        Textarea::make('credit')
+                                            ->label('Crédit'),
+                                    ])->label('Infos')->grow(true),
+                                ])->from('md'),
                             ])
                             ->columns(3)
                             ->columnSpanFull(),
