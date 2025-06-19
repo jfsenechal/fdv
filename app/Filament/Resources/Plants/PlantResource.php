@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace App\Filament\Resources\Plants;
 
 use App\Filament\Resources\Plants\Pages\CreatePlant;
@@ -23,6 +22,8 @@ final class PlantResource extends Resource
     protected static ?string $model = Plant::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static ?string $modelLabel = 'Plantes';
 
     public static function form(Schema $schema): Schema
     {

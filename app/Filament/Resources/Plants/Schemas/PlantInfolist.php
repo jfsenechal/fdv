@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace App\Filament\Resources\Plants\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
@@ -13,24 +12,23 @@ final class PlantInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('common_name'),
-                TextEntry::make('scientific_name'),
-                TextEntry::make('division.id')
-                    ->numeric(),
+                TextEntry::make('common_name')->label('Nom commun'),
+                TextEntry::make('scientific_name')->label('Nom scientifique'),
+                TextEntry::make('division.name')->label('Divison'),
                 TextEntry::make('family.name')
-                    ->numeric(),
-                TextEntry::make('genus.id')
-                    ->numeric(),
-                TextEntry::make('kingdom.id')
-                    ->numeric(),
+                    ->label('Famille'),
+                TextEntry::make('genus.name')
+                    ->label('Genre'),
+                TextEntry::make('kingdom.name')
+                    ->label('Règne'),
                 TextEntry::make('species.name')
-                    ->numeric(),
-                TextEntry::make('subkingdom.id')
-                    ->numeric(),
-                TextEntry::make('taxonomicClass.id')
-                    ->numeric(),
-                TextEntry::make('taxonomicOrder.id')
-                    ->numeric(),
+                    ->label('Spécimen'),
+                TextEntry::make('subkingdom.name')
+                    ->label('Sous règne'),
+                TextEntry::make('taxonomicClass.name')
+                    ->label('Classe'),
+                TextEntry::make('taxonomicOrder.name')
+                    ->label('Ordre'),
                 TextEntry::make('created_at')
                     ->dateTime(),
                 TextEntry::make('updated_at')

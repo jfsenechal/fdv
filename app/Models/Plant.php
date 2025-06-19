@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace App\Models;
 
 use Database\Factories\PlantFactory;
@@ -22,7 +21,7 @@ final class Plant extends Model
         'description',
         'anecdote',
         'family_id',
-        'kind_id',
+        'genus_id',
         'species_id',
         'taxonomic_order_id',
         'taxonomic_class_id',
@@ -48,9 +47,9 @@ final class Plant extends Model
         return $this->belongsTo(Family::class);
     }
 
-    public function kind(): BelongsTo
+    public function genus(): BelongsTo
     {
-        return $this->belongsTo(Kind::class);
+        return $this->belongsTo(Genus::class);
     }
 
     public function species(): BelongsTo

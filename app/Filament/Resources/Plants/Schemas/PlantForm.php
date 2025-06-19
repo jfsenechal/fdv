@@ -3,9 +3,14 @@
 
 namespace App\Filament\Resources\Plants\Schemas;
 
+use App\Enums\SeasonEnum;
 use App\Filament\Forms\FormOptions;
+use Filament\Forms\Components\CheckboxList;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Schema;
@@ -47,9 +52,9 @@ final class PlantForm
                                 TextInput::make('name')
                                     ->required(),
                             ]),
-                        Select::make('kind_id')
+                        Select::make('genus_id')
                             ->label('Genre')
-                            ->relationship('kind', 'name')
+                            ->relationship('genus', 'name')
                             ->default(null)
                             ->searchable()
                             ->preload()
@@ -118,6 +123,30 @@ final class PlantForm
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
+                    ]),
+                Fieldset::make('Photos')
+                    ->components([
+                        Repeater::make('photos')
+                            ->relationship()
+                            ->orderColumn()
+                            ->schema([
+                                FileUpload::make('photos')
+                                    ->label('Photo')->disk('public')
+                                    ->directory('uploads')
+                                    ->previewable(false)
+                                    ->openable()
+                                    ->downloadable()
+                                    ->image(),
+                                CheckboxList::make('season')
+                                    ->label('Saison')
+                                    ->options(SeasonEnum::class),
+                                Textarea::make('caption')
+                                    ->label('Légende'),
+                                Textarea::make('credit')
+                                    ->label('Crédit'),
+                            ])
+                            ->columns(3)
+                            ->columnSpanFull(),
                     ]),
             ]);
     }

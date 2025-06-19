@@ -26,6 +26,8 @@ final class Photo extends Model
         'path',
         'season',
         'caption',
+        'credit',
+        'sort',
     ];
 
     /**

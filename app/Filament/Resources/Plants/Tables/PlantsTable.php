@@ -25,7 +25,7 @@ final class PlantsTable
                     ->searchable()
                     ->sortable()
                     ->label('Nom latin'),
-                TextColumn::make('division')
+                TextColumn::make('division.name')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('family.name')

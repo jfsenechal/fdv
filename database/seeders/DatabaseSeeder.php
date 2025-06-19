@@ -6,7 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Division;
 use App\Models\Family;
-use App\Models\Kind;
+use App\Models\Genus;
 use App\Models\Kingdom;
 use App\Models\Species;
 use App\Models\TaxonomicClass;
@@ -31,7 +31,7 @@ final class DatabaseSeeder extends Seeder
         TaxonomicClass::factory()->create(['name' => 'Pinopsida']);
         TaxonomicOrder::factory()->create(['name' => 'Taxales']);
         Family::factory()->create(['name' => 'Taxaceae']);
-        Kind::factory()->create(['name' => 'Taxus']);
+        Genus::factory()->create(['name' => 'Taxus']);
         Species::factory()->create(['name' => 'Taxus baccata']);
     }
 }

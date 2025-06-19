@@ -10,4 +10,6 @@ use Filament\Resources\Pages\CreateRecord;
 final class CreatePlant extends CreateRecord
 {
     protected static string $resource = PlantResource::class;
+
+    protected static ?string $title = 'Ajouter une plante';
 }

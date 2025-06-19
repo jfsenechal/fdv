@@ -24,6 +24,10 @@ final class SpeciesResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $modelLabel = 'Espèces';
+
+    protected static string|\UnitEnum|null $navigationGroup = 'Paramètres';
+
     public static function form(Schema $schema): Schema
     {
         return SpeciesForm::configure($schema);

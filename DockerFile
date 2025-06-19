@@ -1,0 +1,35 @@
+FROM composer:2.7 as vendor
+
+WORKDIR /app
+
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --prefer-dist --optimize-autoloader
+
+COPY . .
+
+# Stage 2: Build frontend assets (optional)
+FROM node:20-alpine as frontend
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+# Stage 3: Final production image (clean and light)
+FROM php:8.3-fpm-alpine
+
+RUN apk add --no-cache \
+    bash curl libpng libjpeg-turbo-dev libzip-dev oniguruma-dev \
+    && docker-php-ext-install pdo pdo_mysql zip mbstring
+
+WORKDIR /var/www
+
+COPY --from=vendor /app /var/www
+COPY --from=frontend /app/public/build /var/www/public/build
+
+RUN chown -R www-data:www-data /var/www
+
+USER www-data

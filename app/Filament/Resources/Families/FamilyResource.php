@@ -17,6 +17,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 final class FamilyResource extends Resource
 {
@@ -24,7 +25,9 @@ final class FamilyResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $modelLabel = 'Famille';
+    protected static ?string $modelLabel = 'Familles';
+
+    protected static string | UnitEnum | null $navigationGroup = 'Paramètres';
 
     public static function form(Schema $schema): Schema
     {
