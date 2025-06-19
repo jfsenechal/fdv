@@ -34,6 +34,15 @@ final class Plant extends Model
 
     ];
 
+    public function firstPhoto(): ?Photo
+    {
+        if ($this->photos()->count() > 0) {
+            return $this->photos()->first();
+        }
+
+        return null;
+    }
+
     /**
      * Get all the photos for the Plant.
      */
