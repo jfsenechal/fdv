@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use Filament\Tables\Table;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,9 @@ final class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Set the root URL for assets and routes
+        URL::forceRootUrl(config('app.url'));
+
         $this->configureTable();
     }
 

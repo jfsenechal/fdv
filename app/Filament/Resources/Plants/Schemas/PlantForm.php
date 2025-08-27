@@ -139,10 +139,12 @@ final class PlantForm
                                     ->directory('uploads')
                                     ->previewable(false)
                                     ->openable()
+                                    ->required()
                                     //->image()
                                     ->downloadable(),
                                 Radio::make('season')
                                     ->label('Saison')
+                                    ->required()
                                     ->options(SeasonEnum::class),
                                 Flex::make([
                                     Section::make([
