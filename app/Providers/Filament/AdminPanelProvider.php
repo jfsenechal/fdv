@@ -22,6 +22,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
+//https://scolopendre.my.canva.site/taxus-baccata
 final class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
