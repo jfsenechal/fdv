@@ -17,8 +17,8 @@ final class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // Set the root URL for assets and routes
-        URL::forceRootUrl(config('app.url'));
+        // Set the root URL for record link in tables
+        URL::useOrigin(config('app.url'));
 
         $this->configureTable();
     }
