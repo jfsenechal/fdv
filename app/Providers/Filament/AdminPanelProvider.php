@@ -30,7 +30,7 @@ final class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('plantes/admin')
             ->login(Login::class)
             ->spa()
             ->resourceCreatePageRedirect('view')
