@@ -1,17 +1,15 @@
 <?php
 
+namespace App\Filament\Resources\Genus\Pages;
 
-
-namespace App\Filament\Resources\Type\Pages;
-
-use App\Filament\Resources\Type\KingdomResource;
+use App\Filament\Resources\Genus\GenusResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-final class EditKingdom extends EditRecord
+class EditGenus extends EditRecord
 {
-    protected static string $resource = KingdomResource::class;
+    protected static string $resource = GenusResource::class;
 
     protected function getHeaderActions(): array
     {

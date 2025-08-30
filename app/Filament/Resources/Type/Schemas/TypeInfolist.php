@@ -6,7 +6,7 @@ namespace App\Filament\Resources\Type\Schemas;
 
 use Filament\Schemas\Schema;
 
-final class KingdomInfolist
+final class TypeInfolist
 {
     public static function configure(Schema $schema): Schema
     {

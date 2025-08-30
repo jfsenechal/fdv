@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Genera\Schemas;
+namespace App\Filament\Resources\Genus\Schemas;
 
 use Filament\Schemas\Schema;
 

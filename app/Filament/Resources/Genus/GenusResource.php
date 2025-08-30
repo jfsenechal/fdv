@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\Genera;
+namespace App\Filament\Resources\Genus;
 
-use App\Filament\Resources\Genera\Pages\CreateGenus;
-use App\Filament\Resources\Genera\Pages\EditGenus;
-use App\Filament\Resources\Genera\Pages\ListGenera;
-use App\Filament\Resources\Genera\Pages\ViewGenus;
-use App\Filament\Resources\Genera\Schemas\GenusForm;
-use App\Filament\Resources\Genera\Schemas\GenusInfolist;
-use App\Filament\Resources\Genera\Tables\GeneraTable;
+use App\Filament\Resources\Genus\Pages\CreateGenus;
+use App\Filament\Resources\Genus\Pages\EditGenus;
+use App\Filament\Resources\Genus\Pages\ListGenus;
+use App\Filament\Resources\Genus\Pages\ViewGenus;
+use App\Filament\Resources\Genus\Schemas\GenusForm;
+use App\Filament\Resources\Genus\Schemas\GenusInfolist;
+use App\Filament\Resources\Genus\Tables\GenusTable;
 use App\Models\Genus;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -22,7 +22,7 @@ class GenusResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $modelLabel = 'Genre';
+    protected static ?string $modelLabel = 'Genres';
 
     protected static string | \UnitEnum | null $navigationGroup = 'Paramètres';
 
@@ -38,7 +38,7 @@ class GenusResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return GeneraTable::configure($table);
+        return GenusTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -51,7 +51,7 @@ class GenusResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGenera::route('/'),
+            'index' => ListGenus::route('/'),
             'create' => CreateGenus::route('/create'),
             'view' => ViewGenus::route('/{record}'),
             'edit' => EditGenus::route('/{record}/edit'),

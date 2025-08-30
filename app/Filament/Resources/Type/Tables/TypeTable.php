@@ -11,7 +11,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class KingdomsTable
+final class TypeTable
 {
     public static function configure(Table $table): Table
     {

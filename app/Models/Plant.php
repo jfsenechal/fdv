@@ -63,7 +63,7 @@ final class Plant extends Model
         return $this->belongsTo(Genus::class);
     }
 
-    public function division(): BelongsTo
+    public function type(): BelongsTo
     {
         return $this->belongsTo(Type::class);
     }

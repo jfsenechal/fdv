@@ -4,13 +4,13 @@
 
 namespace App\Filament\Resources\Type\Pages;
 
-use App\Filament\Resources\Type\KingdomResource;
+use App\Filament\Resources\Type\TypeResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
-final class ViewKingdom extends ViewRecord
+final class ViewType extends ViewRecord
 {
-    protected static string $resource = KingdomResource::class;
+    protected static string $resource = TypeResource::class;
 
     protected function getHeaderActions(): array
     {

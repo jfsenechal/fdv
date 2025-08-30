@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Genera\Pages;
+namespace App\Filament\Resources\Genus\Pages;
 
-use App\Filament\Resources\Genera\GenusResource;
+use App\Filament\Resources\Genus\GenusResource;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreateGenus extends CreateRecord

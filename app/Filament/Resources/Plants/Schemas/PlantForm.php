@@ -1,11 +1,11 @@
 <?php
 
+declare(strict_types=1);
 
 namespace App\Filament\Resources\Plants\Schemas;
 
 use App\Enums\SeasonEnum;
 use App\Filament\Forms\FormOptions;
-use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
@@ -25,51 +25,24 @@ final class PlantForm
         return $schema
             ->columns(1)
             ->components([
-                Fieldset::make('Nom')
+                Fieldset::make('Noms')
                     ->components([
-                        TextInput::make('common_name')
-                            ->label('Nom commun')
+                        TextInput::make('latin_name')
+                            ->label('Nom latin')
                             ->required(),
-                        TextInput::make('scientific_name')
-                            ->label('Nom latin'),
+                        TextInput::make('french_name')
+                            ->label('Nom français'),
+                        TextInput::make('english_name')
+                            ->label('Nom anglais'),
                     ]),
                 Fieldset::make('Classification')
                     ->components([
-                        Select::make('kingdom_id')
-                            ->label('Règne')
-                            ->relationship('kingdom', 'name')
-                            ->default(1)
-                            ->preload()
-                            ->searchable()
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->required(),
-                            ]),
-                        Select::make('subkingdom_id')
-                            ->label('Sous règne')
-                            ->relationship('subkingdom', 'name')
-                            ->default(null)
-                            ->preload()
-                            ->searchable()
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->required(),
-                            ]),
                         Select::make('family_id')
                             ->label('Famille')
                             ->relationship('family', 'name')
-                            ->default(null)
-                            ->searchable()
+                            ->default(1)
                             ->preload()
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->required(),
-                            ]),
-                        Select::make('division_id')
-                            ->relationship('division', 'name')
-                            ->default(null)
                             ->searchable()
-                            ->preload()
                             ->createOptionForm([
                                 TextInput::make('name')
                                     ->required(),
@@ -78,38 +51,18 @@ final class PlantForm
                             ->label('Genre')
                             ->relationship('genus', 'name')
                             ->default(null)
-                            ->searchable()
-                            ->preload()
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->required(),
-                            ]),
-                        Select::make('species_id')
-                            ->label('Espèce')
-                            ->relationship('species', 'name')
-                            ->default(null)
                             ->preload()
                             ->searchable()
                             ->createOptionForm([
                                 TextInput::make('name')
                                     ->required(),
                             ]),
-                        Select::make('taxonomic_class_id')
-                            ->label('Classe')
-                            ->relationship('taxonomicClass', 'name')
+                        Select::make('type_id')
+                            ->label('Type')
+                            ->relationship('type', 'name')
                             ->default(null)
-                            ->preload()
                             ->searchable()
-                            ->createOptionForm([
-                                TextInput::make('name')
-                                    ->required(),
-                            ]),
-                        Select::make('taxonomic_order_id')
-                            ->label('Ordre')
-                            ->relationship('taxonomicOrder', 'name')
-                            ->default(null)
                             ->preload()
-                            ->searchable()
                             ->createOptionForm([
                                 TextInput::make('name')
                                     ->required(),
@@ -121,7 +74,31 @@ final class PlantForm
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
-                        RichEditor::make('anecdote')
+                        RichEditor::make('usages')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                        RichEditor::make('conservation_status')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                        RichEditor::make('ecological_role')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                        RichEditor::make('habitat')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                        RichEditor::make('flowering_period')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                        RichEditor::make('fruiting_period')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                        RichEditor::make('etymology')
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
@@ -140,7 +117,7 @@ final class PlantForm
                                     ->previewable(false)
                                     ->openable()
                                     ->required()
-                                    //->image()
+                                    // ->image()
                                     ->downloadable(),
                                 Radio::make('season')
                                     ->label('Saison')

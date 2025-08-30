@@ -4,13 +4,13 @@
 
 namespace App\Filament\Resources\Type;
 
-use App\Filament\Resources\Type\Pages\CreateKingdom;
-use App\Filament\Resources\Type\Pages\EditKingdom;
-use App\Filament\Resources\Type\Pages\ListKingdoms;
-use App\Filament\Resources\Type\Pages\ViewKingdom;
-use App\Filament\Resources\Type\Schemas\KingdomForm;
-use App\Filament\Resources\Type\Schemas\KingdomInfolist;
-use App\Filament\Resources\Type\Tables\KingdomsTable;
+use App\Filament\Resources\Type\Pages\CreateType;
+use App\Filament\Resources\Type\Pages\EditType;
+use App\Filament\Resources\Type\Pages\ListTypes;
+use App\Filament\Resources\Type\Pages\ViewType;
+use App\Filament\Resources\Type\Schemas\TypeForm;
+use App\Filament\Resources\Type\Schemas\TypeInfolist;
+use App\Filament\Resources\Type\Tables\TypeTable;
 use App\Models\Type;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -18,29 +18,29 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-final class KingdomResource extends Resource
+final class TypeResource extends Resource
 {
     protected static ?string $model = Type::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $modelLabel = 'Règnes';
+    protected static ?string $modelLabel = 'Types';
 
     protected static string|\UnitEnum|null $navigationGroup = 'Paramètres';
 
     public static function form(Schema $schema): Schema
     {
-        return KingdomForm::configure($schema);
+        return TypeForm::configure($schema);
     }
 
     public static function infolist(Schema $schema): Schema
     {
-        return KingdomInfolist::configure($schema);
+        return TypeInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return KingdomsTable::configure($table);
+        return TypeTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -53,10 +53,10 @@ final class KingdomResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListKingdoms::route('/'),
-            'create' => CreateKingdom::route('/create'),
-            'view' => ViewKingdom::route('/{record}'),
-            'edit' => EditKingdom::route('/{record}/edit'),
+            'index' => ListTypes::route('/'),
+            'create' => CreateType::route('/create'),
+            'view' => ViewType::route('/{record}'),
+            'edit' => EditType::route('/{record}/edit'),
         ];
     }
 }

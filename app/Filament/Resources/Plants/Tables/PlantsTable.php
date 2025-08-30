@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace App\Filament\Resources\Plants\Tables;
 
 use Filament\Actions\BulkActionGroup;
@@ -17,36 +16,21 @@ final class PlantsTable
     {
         return $table
             ->columns([
-                TextColumn::make('common_name')
+                TextColumn::make('french_name')
                     ->searchable()
                     ->sortable()
                     ->label('Nom français'),
-                TextColumn::make('scientific_name')
+                TextColumn::make('latin_name')
                     ->searchable()
                     ->sortable()
                     ->label('Nom latin'),
-                TextColumn::make('division.name')
-                    ->searchable()
-                    ->sortable(),
                 TextColumn::make('family.name')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('genus.name')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('kingdom.name')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('species.name')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('subkingdom.name')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('taxonomicClass.name')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('taxonomicOrder.name')
+                TextColumn::make('type.name')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('created_at')

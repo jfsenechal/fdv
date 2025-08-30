@@ -7,7 +7,7 @@ namespace App\Filament\Resources\Type\Schemas;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class KingdomForm
+final class TypeForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -12,23 +12,15 @@ final class PlantInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('common_name')->label('Nom commun'),
-                TextEntry::make('scientific_name')->label('Nom scientifique'),
-                TextEntry::make('division.name')->label('Divison'),
+                TextEntry::make('french_name')->label('Nom français'),
+                TextEntry::make('latin_name')->label('Nom latin'),
+                TextEntry::make('english.name')->label('Nom anglais'),
                 TextEntry::make('family.name')
                     ->label('Famille'),
                 TextEntry::make('genus.name')
                     ->label('Genre'),
-                TextEntry::make('kingdom.name')
-                    ->label('Règne'),
-                TextEntry::make('species.name')
-                    ->label('Spécimen'),
-                TextEntry::make('subkingdom.name')
-                    ->label('Sous règne'),
-                TextEntry::make('taxonomicClass.name')
-                    ->label('Classe'),
-                TextEntry::make('taxonomicOrder.name')
-                    ->label('Ordre'),
+                TextEntry::make('type.name')
+                    ->label('Type'),
                 TextEntry::make('created_at')
                     ->dateTime(),
                 TextEntry::make('updated_at')

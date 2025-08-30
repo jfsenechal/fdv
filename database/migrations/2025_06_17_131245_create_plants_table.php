@@ -47,7 +47,7 @@ return new class() extends Migration
             $table->timestamps(false);
         });
 
-        Schema::create('type', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
             $table->text('description')->nullable();
