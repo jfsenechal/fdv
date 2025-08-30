@@ -1,7 +1,6 @@
 <?php
 
 
-
 namespace App\Providers;
 
 use Filament\Tables\Table;
@@ -18,8 +17,10 @@ final class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Set the root URL for record link in tables
-        URL::useOrigin(config('app.url'));
 
+        if (!app()->isLocal()) {
+            URL::useOrigin(config('app.url'));
+        }
         $this->configureTable();
     }
 
