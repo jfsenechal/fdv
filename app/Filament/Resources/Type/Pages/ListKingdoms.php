@@ -2,15 +2,15 @@
 
 
 
-namespace App\Filament\Resources\Species\Pages;
+namespace App\Filament\Resources\Type\Pages;
 
-use App\Filament\Resources\Species\SpeciesResource;
+use App\Filament\Resources\Type\KingdomResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-final class ListSpecies extends ListRecords
+final class ListKingdoms extends ListRecords
 {
-    protected static string $resource = SpeciesResource::class;
+    protected static string $resource = KingdomResource::class;
 
     protected function getHeaderActions(): array
     {

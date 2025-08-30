@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\Division;
 use App\Models\Family;
 use App\Models\Genus;
-use App\Models\Kingdom;
-use App\Models\Species;
-use App\Models\TaxonomicClass;
-use App\Models\TaxonomicOrder;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -25,13 +21,8 @@ final class DatabaseSeeder extends Seeder
             'email' => config('app.default_user.email'),
             'password' => bcrypt(config('app.default_user.password')),
         ]);
-        Kingdom::factory()->create(['name' => 'Plantae']);
-        Kingdom::factory()->create(['name' => 'Tracheobionta']);
-        Division::factory()->create(['name' => 'Pinophyta']);
-        TaxonomicClass::factory()->create(['name' => 'Pinopsida']);
-        TaxonomicOrder::factory()->create(['name' => 'Taxales']);
-        Family::factory()->create(['name' => 'Taxaceae']);
-        Genus::factory()->create(['name' => 'Taxus']);
-        Species::factory()->create(['name' => 'Taxus baccata']);
+        Type::factory()->create(['name' => 'Arbre à feuilles caduques']);
+        Family::factory()->create(['name' => 'Sapindaceae']);
+        Genus::factory()->create(['name' => 'Acer']);
     }
 }

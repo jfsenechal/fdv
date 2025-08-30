@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Models;
 
 use App\Enums\SeasonEnum;
@@ -23,6 +21,7 @@ final class Photo extends Model
      */
     protected $fillable = [
         'plant_id',
+        'category_photo_id',
         'path',
         'season',
         'caption',

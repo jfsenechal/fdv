@@ -16,18 +16,20 @@ final class Plant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'common_name',
-        'scientific_name',
+        'french_name',
+        'english_name',
+        'latin_name',
         'description',
-        'anecdote',
-        'family_id',
-        'genus_id',
-        'species_id',
-        'taxonomic_order_id',
-        'taxonomic_class_id',
-        'division_id',
-        'kingdom_id',
-        'subkingdom_id',
+        'conservation_status', // Statut et préservation
+        'usages', // Usages et anecdotes
+        'ecological_role', // Rôle écologique
+        'habitat', // Habitat
+        'flowering_period', // Période de floraison
+        'fruiting_period', // Fructification
+        'etymology', // Étymologie
+        'family_id', // famille
+        'genus_id', // genre
+        'type_id', // type
     ];
 
     protected $casts = [
@@ -61,33 +63,8 @@ final class Plant extends Model
         return $this->belongsTo(Genus::class);
     }
 
-    public function species(): BelongsTo
-    {
-        return $this->belongsTo(Species::class);
-    }
-
-    public function taxonomicOrder(): BelongsTo
-    {
-        return $this->belongsTo(TaxonomicOrder::class);
-    }
-
-    public function taxonomicClass(): BelongsTo
-    {
-        return $this->belongsTo(TaxonomicClass::class);
-    }
-
     public function division(): BelongsTo
     {
-        return $this->belongsTo(Division::class);
-    }
-
-    public function kingdom(): BelongsTo
-    {
-        return $this->belongsTo(Kingdom::class);
-    }
-
-    public function subkingdom(): BelongsTo
-    {
-        return $this->belongsTo(Subkingdom::class);
+        return $this->belongsTo(Type::class);
     }
 }

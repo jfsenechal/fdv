@@ -3,14 +3,9 @@
 declare(strict_types=1);
 
 use App\Enums\SeasonEnum;
-use App\Models\Division;
 use App\Models\Family;
 use App\Models\Genus;
-use App\Models\Kingdom;
-use App\Models\Species;
-use App\Models\Subkingdom;
-use App\Models\TaxonomicClass;
-use App\Models\TaxonomicOrder;
+use App\Models\Type;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,72 +16,47 @@ return new class() extends Migration
     {
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
-            $table->string('common_name')->unique();
-            $table->string('scientific_name')->nullable()->unique();
+            $table->string('french_name');
+            $table->string('english_name')->nullable();
+            $table->string('latin_name')->nullable();
             $table->text('description')->nullable();
-            $table->text('anecdote')->nullable();
-            $table->foreignIdFor(Division::class)->nullable();
-            $table->foreignIdFor(Family::class)->nullable();
-            $table->foreignIdFor(Genus::class)->nullable();
-            $table->foreignIdFor(Kingdom::class)->nullable();
-            $table->foreignIdFor(Species::class)->nullable();
-            $table->foreignIdFor(Subkingdom::class)->nullable();
-            $table->foreignIdFor(TaxonomicClass::class)->nullable();
-            $table->foreignIdFor(TaxonomicOrder::class)->nullable();
+            $table->text('conservation_status')->nullable(); // Statut et préservation
+            $table->text('usages')->nullable(); // Usages et anecdotes
+            $table->text('ecological_role')->nullable(); // Rôle écologique
+            $table->text('habitat')->nullable(); // Habitat
+            $table->text('flowering_period')->nullable(); // Période de floraison
+            $table->text('fruiting_period')->nullable(); // Fructification
+            $table->text('etymology')->nullable(); // Étymologie
+            $table->foreignIdFor(Family::class)->nullable(); // famille
+            $table->foreignIdFor(Genus::class)->nullable(); // genre
+            $table->foreignIdFor(Type::class)->nullable(); // type
             $table->timestamps();
         });
 
         Schema::create('families', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
-            $table->timestamps(false);
-        });
-
-        Schema::create('kinds', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable(false)->unique();
+            $table->text('description')->nullable();
             $table->timestamps(false);
         });
 
         Schema::create('genus', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
+            $table->text('description')->nullable();
             $table->timestamps(false);
         });
 
-        Schema::create('species', function (Blueprint $table) {
+        Schema::create('type', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false)->unique();
+            $table->text('description')->nullable();
             $table->timestamps(false);
         });
 
-        Schema::create('taxonomic_orders', function (Blueprint $table) {
+        Schema::create('category_photos', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable(false)->unique();
-            $table->timestamps(false);
-        });
-
-        Schema::create('taxonomic_classes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable(false)->unique();
-            $table->timestamps(false);
-        });
-
-        Schema::create('divisions', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable(false)->unique();
-            $table->timestamps(false);
-        });
-
-        Schema::create('kingdoms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable(false)->unique();
-            $table->timestamps(false);
-        });
-
-        Schema::create('subkingdoms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable(false)->unique();
+            $table->string('name')->nullable(false);
             $table->timestamps(false);
         });
 
@@ -97,6 +67,7 @@ return new class() extends Migration
             // constrained() automatically sets it up to reference 'plants.id'.
             // onDelete('cascade') means if a plant is deleted, all its photos will be deleted too.
             $table->foreignId('plant_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_photo_id')->constrained()->onDelete('cascade');
 
             // The path to the image file, e.g., 'plants/tomato_summer.jpg'
             $table->string('path');

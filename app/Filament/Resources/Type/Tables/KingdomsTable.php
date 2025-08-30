@@ -2,7 +2,7 @@
 
 
 
-namespace App\Filament\Resources\TaxonomicOrders\Tables;
+namespace App\Filament\Resources\Type\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -11,7 +11,7 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class TaxonomicOrdersTable
+final class KingdomsTable
 {
     public static function configure(Table $table): Table
     {

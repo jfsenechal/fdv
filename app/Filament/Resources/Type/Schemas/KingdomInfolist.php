@@ -2,11 +2,11 @@
 
 
 
-namespace App\Filament\Resources\Divisions\Schemas;
+namespace App\Filament\Resources\Type\Schemas;
 
 use Filament\Schemas\Schema;
 
-final class DivisionInfolist
+final class KingdomInfolist
 {
     public static function configure(Schema $schema): Schema
     {

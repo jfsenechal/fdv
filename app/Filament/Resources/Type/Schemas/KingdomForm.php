@@ -2,12 +2,12 @@
 
 
 
-namespace App\Filament\Resources\TaxonomicOrders\Schemas;
+namespace App\Filament\Resources\Type\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-final class TaxonomicOrderForm
+final class KingdomForm
 {
     public static function configure(Schema $schema): Schema
     {

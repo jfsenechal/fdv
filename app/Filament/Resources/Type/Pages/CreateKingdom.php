@@ -2,9 +2,9 @@
 
 
 
-namespace App\Filament\Resources\Kingdoms\Pages;
+namespace App\Filament\Resources\Type\Pages;
 
-use App\Filament\Resources\Kingdoms\KingdomResource;
+use App\Filament\Resources\Type\KingdomResource;
 use Filament\Resources\Pages\CreateRecord;
 
 final class CreateKingdom extends CreateRecord

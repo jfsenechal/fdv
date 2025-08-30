@@ -1,14 +1,16 @@
 <?php
 
+
+
 namespace App\Models;
 
-use Database\Factories\DivisionFactory;
+use Database\Factories\KingdomFactory;
 use Illuminate\Database\Eloquent\Attributes\UseFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-#[UseFactory(DivisionFactory::class)]
-final class Division extends Model
+#[UseFactory(KingdomFactory::class)]
+final class Type extends Model
 {
     use HasFactory;
 
