@@ -46,11 +46,19 @@ final class Plant extends Model
     }
 
     /**
-     * Get all the photos for the Plant.
+     * Get all photos for this plant
      */
     public function photos(): HasMany
     {
         return $this->hasMany(Photo::class);
+    }
+
+    /**
+     * Get photos for a specific season
+     */
+    public function photosBySeason(string $season): HasMany
+    {
+        return $this->hasMany(Photo::class)->where('season', $season);
     }
 
     public function family(): BelongsTo

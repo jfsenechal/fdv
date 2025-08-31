@@ -4,18 +4,11 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\Plants\Schemas;
 
-use App\Enums\SeasonEnum;
 use App\Filament\Forms\FormOptions;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Radio;
-use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Fieldset;
-use Filament\Schemas\Components\Flex;
-use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 final class PlantForm
@@ -121,38 +114,6 @@ final class PlantForm
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
-                    ]),
-                Fieldset::make('Photos')
-                    ->components([
-                        Repeater::make('photos')
-                            ->addActionLabel('Ajouter la photo')
-                            ->relationship()
-                            ->orderColumn()
-                            ->schema([
-                                FileUpload::make('path')
-                                    ->label('Photo')
-                                    ->disk('public')
-                                    ->directory('uploads')
-                                    ->previewable(false)
-                                    ->openable()
-                                    ->required()
-                                    // ->image()
-                                    ->downloadable(),
-                                Radio::make('season')
-                                    ->label('Saison')
-                                    ->required()
-                                    ->options(SeasonEnum::class),
-                                Flex::make([
-                                    Section::make([
-                                        Textarea::make('caption')
-                                            ->label('Légende'),
-                                        Textarea::make('credit')
-                                            ->label('Crédit'),
-                                    ])->label('Infos')->grow(true),
-                                ])->from('md'),
-                            ])
-                            ->columns(3)
-                            ->columnSpanFull(),
                     ]),
             ]);
     }

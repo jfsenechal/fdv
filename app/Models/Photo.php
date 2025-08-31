@@ -46,8 +46,33 @@ final class Photo extends Model
         return $this->belongsTo(Plant::class);
     }
 
-    public function category(): BelongsTo
+    public function categoryPhoto(): BelongsTo
     {
         return $this->belongsTo(CategoryPhoto::class);
     }
+
+    /**
+     * Scope to filter photos by season
+     */
+    public function scopeBySeason($query, string $season)
+    {
+        return $query->where('season', $season);
+    }
+
+    /**
+     * Scope to order photos by sort column
+     */
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort');
+    }
+
+    /**
+     * Get the full URL for the photo
+     */
+    public function getUrlAttribute(): string
+    {
+        return asset('storage/'.$this->path);
+    }
+
 }

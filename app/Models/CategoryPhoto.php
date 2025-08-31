@@ -17,7 +17,10 @@ final class CategoryPhoto extends Model
         'name',
     ];
 
-    public function photos(): hasMany
+    /**
+     * Get all photos in this category
+     */
+    public function photos(): HasMany
     {
         return $this->hasMany(Photo::class);
     }
