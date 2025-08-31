@@ -3,7 +3,7 @@
 <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
     <!-- Recipe Image -->
     <div class="aspect-w-16 aspect-h-9">
-        <img src="{{ $plant->coverPhoto()?->path ?? asset('storage/image-coming-soon.png') }}" alt="{{ $plant->french_name }}" class="w-full h-48 object-cover">
+        <img src="{{ $plant->coverPhoto()?->url ?? asset('storage/image-coming-soon.png') }}" alt="{{ $plant->french_name }}" class="w-full h-48 object-cover">
     </div>
 
     <!-- Recipe Content -->
@@ -15,7 +15,7 @@
 
         <!-- Recipe Title -->
         <h3 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
-            {{ $plant->english_name }}
+            {{ $plant->french_name }}
         </h3>
 
         <!-- Recipe Description -->
