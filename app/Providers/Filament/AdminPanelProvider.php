@@ -32,6 +32,7 @@ final class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login(Login::class)
+            ->profile()
             ->spa()
             ->resourceCreatePageRedirect('view')
             ->resourceEditPageRedirect('view')
