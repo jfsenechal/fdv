@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Models\Family;
-use App\Models\Genus;
-use App\Models\Type;
+use App\Models\CategoryPhoto;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -21,8 +19,9 @@ final class DatabaseSeeder extends Seeder
             'email' => config('app.default_user.email'),
             'password' => bcrypt(config('app.default_user.password')),
         ]);
-        Type::factory()->create(['name' => 'Arbre à feuilles caduques']);
-        Family::factory()->create(['name' => 'Sapindaceae']);
-        Genus::factory()->create(['name' => 'Acer']);
+        $categories = ['Aspect général', 'Feuilles', 'Fleurs et fruits'];
+        foreach ($categories as $category) {
+            CategoryPhoto::factory()->create(['name' => $category]);
+        }
     }
 }

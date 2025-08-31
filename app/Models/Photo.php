@@ -45,4 +45,9 @@ final class Photo extends Model
     {
         return $this->belongsTo(Plant::class);
     }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(CategoryPhoto::class);
+    }
 }
