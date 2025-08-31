@@ -1,6 +1,7 @@
 @props(['plant'])
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+<a class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+   href="{{route('plant_show',['id' => $plant->id])}}">
     <!-- Recipe Image -->
     <div class="aspect-w-16 aspect-h-9">
         <img src="{{ $plant->coverPhoto()?->url ?? asset('storage/image-coming-soon.png') }}"
@@ -10,6 +11,7 @@
     <!-- Recipe Content -->
     <div class="p-4">
         <!-- Category Badge -->
+
         <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mb-2">
             {{ $plant->latin_name }}
         </span>
@@ -53,4 +55,4 @@
             </span>
         </div>
     </div>
-</div>
+</a>

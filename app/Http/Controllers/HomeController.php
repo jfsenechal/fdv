@@ -14,4 +14,11 @@ class HomeController extends Controller
 
         return view('home', ['plants' => $plants]);
     }
+
+    public function show(int $id)
+    {
+        $plant = Plant::findOrFail($id);
+
+        return view('show', ['plant' => $plant]);
+    }
 }
