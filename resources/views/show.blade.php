@@ -60,12 +60,12 @@
                             @if($plant->flowering_period)
                                 <p class="text-gray-700 animate-fade-in delay-600"><strong
                                         class="font-semibold text-green-700">Flowering
-                                        Period:</strong> {{ $plant->flowering_period }}</p>
+                                        Period:</strong> {!!  $plant->flowering_period !!}</p>
                             @endif
                             @if($plant->fruiting_period)
                                 <p class="text-gray-700 animate-fade-in delay-700"><strong
                                         class="font-semibold text-green-700">Fruiting
-                                        Period:</strong> {{ $plant->fruiting_period }}</p>
+                                        Period:</strong> {!!  $plant->fruiting_period !!}</p>
                             @endif
                         </div>
                     </div>
@@ -73,49 +73,49 @@
                     @if($plant->description)
                         <div class="mt-6 animate-fade-in delay-800">
                             <h3 class="text-2xl font-semibold text-green-800 mb-2">Description</h3>
-                            <p class="text-gray-700 leading-relaxed">{{ $plant->description }}</p>
+                            <p class="text-gray-700 leading-relaxed">{!! $plant->description !!}</p>
                         </div>
                     @endif
 
                     @if($plant->conservation_status)
                         <div class="mt-6 animate-fade-in delay-900">
                             <h3 class="text-2xl font-semibold text-green-800 mb-2">Conservation Status</h3>
-                            <p class="text-gray-700 leading-relaxed">{{ $plant->conservation_status }}</p>
+                            <p class="text-gray-700 leading-relaxed">{!! $plant->conservation_status !!}</p>
                         </div>
                     @endif
 
                     @if($plant->usages)
                         <div class="mt-6 animate-fade-in delay-1000">
                             <h3 class="text-2xl font-semibold text-green-800 mb-2">Usages & Anecdotes</h3>
-                            <p class="text-gray-700 leading-relaxed">{{ $plant->usages }}</p>
+                            <p class="text-gray-700 leading-relaxed">{!! $plant->usages !!}</p>
                         </div>
                     @endif
 
                     @if($plant->ecological_role)
                         <div class="mt-6 animate-fade-in delay-1100">
                             <h3 class="text-2xl font-semibold text-green-800 mb-2">Ecological Role</h3>
-                            <p class="text-gray-700 leading-relaxed">{{ $plant->ecological_role }}</p>
+                            <p class="text-gray-700 leading-relaxed">{!! $plant->ecological_role !!}</p>
                         </div>
                     @endif
 
                     @if($plant->habitat)
                         <div class="mt-6 animate-fade-in delay-1200">
                             <h3 class="text-2xl font-semibold text-green-800 mb-2">Habitat</h3>
-                            <p class="text-gray-700 leading-relaxed">{{ $plant->habitat }}</p>
+                            <p class="text-gray-700 leading-relaxed">{!! $plant->habitat !!}</p>
                         </div>
                     @endif
 
                     @if($plant->etymology)
                         <div class="mt-6 animate-fade-in delay-1300">
                             <h3 class="text-2xl font-semibold text-green-800 mb-2">Etymology</h3>
-                            <p class="text-gray-700 leading-relaxed">{{ $plant->etymology }}</p>
+                            <p class="text-gray-700 leading-relaxed">{!! $plant->etymology !!}</p>
                         </div>
                     @endif
 
                     <div class="mt-8 text-center">
                         <a href="{{ route('home') }}"
-                           class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 animate-bounce-in">Back
-                            to Plants</a>
+                           class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 animate-bounce-in">
+                            Retour à la liste des plantes</a>
                     </div>
                 </div>
             </div>
