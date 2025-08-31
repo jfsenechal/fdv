@@ -74,6 +74,7 @@ return new class() extends Migration
 
             // The season for this specific photo. Using an ENUM for data integrity.
             $table->enum('season', SeasonEnum::toArray());
+            $table->boolean('has_cover')->default(false);
 
             // Optional: a caption for the photo
             $table->string('caption')->nullable();

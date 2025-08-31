@@ -27,6 +27,7 @@ final class Photo extends Model
         'caption',
         'credit',
         'sort',
+        'has_cover',
     ];
 
     /**
@@ -36,6 +37,7 @@ final class Photo extends Model
      */
     protected $casts = [
         'season' => SeasonEnum::class,
+        'has_cover' => 'boolean',
     ];
 
     /**

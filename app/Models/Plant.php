@@ -45,6 +45,24 @@ final class Plant extends Model
         return null;
     }
 
+    public function coverPhoto(): ?Photo
+    {
+        // If no cover photo exists, get the first photo
+        if ($this->photos()->count() > 0) {
+
+            // First, try to get a photo marked as cover
+            $coverPhoto = $this->photos()->where('has_cover', true)->first();
+
+            if ($coverPhoto) {
+                return $coverPhoto;
+            }
+
+            return $this->photos()->first();
+        }
+
+        return null;
+    }
+
     /**
      * Get all photos for this plant
      */
