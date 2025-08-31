@@ -25,7 +25,7 @@ final class PlantForm
         return $schema
             ->columns(1)
             ->components([
-                Fieldset::make('Noms')
+                Fieldset::make('Appellation')
                     ->components([
                         TextInput::make('latin_name')
                             ->label('Nom latin')
@@ -35,7 +35,14 @@ final class PlantForm
                         TextInput::make('english_name')
                             ->label('Nom anglais'),
                     ]),
-                Fieldset::make('Classification')
+                Fieldset::make('Description')
+                    ->components([
+                        RichEditor::make('description')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                    ]),
+                Fieldset::make('Classification taxonomique')
                     ->components([
                         Select::make('family_id')
                             ->label('Famille')
@@ -68,37 +75,49 @@ final class PlantForm
                                     ->required(),
                             ]),
                     ]),
-                Fieldset::make('Description')
+
+                Fieldset::make('Conservation et écologie')
                     ->components([
-                        RichEditor::make('description')
-                            ->default(null)
-                            ->columnSpanFull()
-                            ->toolbarButtons(FormOptions::editor()),
-                        RichEditor::make('usages')
+                        RichEditor::make('habitat')
+                            ->label('Habitat dans la réserve')
+                            ->helperText('(Calestienne)')
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
                         RichEditor::make('conservation_status')
+                            ->label('Statut et préservation')
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
                         RichEditor::make('ecological_role')
+                            ->label('Rôle écologique')
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
-                        RichEditor::make('habitat')
-                            ->default(null)
-                            ->columnSpanFull()
-                            ->toolbarButtons(FormOptions::editor()),
+                    ]),
+
+                Fieldset::make('Cycles biologiques')
+                    ->components([
                         RichEditor::make('flowering_period')
+                            ->label('Période de floraison')
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
                         RichEditor::make('fruiting_period')
+                            ->label('Fructification')
+                            ->default(null)
+                            ->columnSpanFull()
+                            ->toolbarButtons(FormOptions::editor()),
+                    ]),
+                Fieldset::make('Informations culturelles')
+                    ->components([
+                        RichEditor::make('usages')
+                            ->label('Usages et anecdotes')
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
                         RichEditor::make('etymology')
+                            ->label('Étymologie')
                             ->default(null)
                             ->columnSpanFull()
                             ->toolbarButtons(FormOptions::editor()),
