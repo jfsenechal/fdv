@@ -1,9 +1,9 @@
 <?php
 
 
-
 namespace App\Filament\Resources\Type;
 
+use App\Enums\NavigationGroupEnum;
 use App\Filament\Resources\Type\Pages\CreateType;
 use App\Filament\Resources\Type\Pages\EditType;
 use App\Filament\Resources\Type\Pages\ListTypes;
@@ -26,7 +26,7 @@ final class TypeResource extends Resource
 
     protected static ?string $modelLabel = 'Types';
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Paramètres';
+    protected static string|\UnitEnum|null $navigationGroup = NavigationGroupEnum::classifications;
 
     public static function form(Schema $schema): Schema
     {

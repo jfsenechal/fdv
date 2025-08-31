@@ -15,7 +15,7 @@ final class ViewPlant extends ViewRecord
 
     public function getTitle(): string|Htmlable
     {
-        return $this->record->scientific_name ?? $this->record->common_name ;
+        return $this->record->latin_name ?? $this->record->french_name ;
     }
 
     protected function getHeaderActions(): array

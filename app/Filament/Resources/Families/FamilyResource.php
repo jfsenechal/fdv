@@ -1,9 +1,9 @@
 <?php
 
 
-
 namespace App\Filament\Resources\Families;
 
+use App\Enums\NavigationGroupEnum;
 use App\Filament\Resources\Families\Pages\CreateFamily;
 use App\Filament\Resources\Families\Pages\EditFamily;
 use App\Filament\Resources\Families\Pages\ListFamilies;
@@ -27,7 +27,7 @@ final class FamilyResource extends Resource
 
     protected static ?string $modelLabel = 'Familles';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Paramètres';
+    protected static string|UnitEnum|null $navigationGroup = NavigationGroupEnum::classifications;
 
     public static function form(Schema $schema): Schema
     {

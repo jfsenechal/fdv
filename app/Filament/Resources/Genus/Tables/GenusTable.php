@@ -14,6 +14,7 @@ class GenusTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->defaultSort('name', 'asc')
             ->columns([
                 TextColumn::make('name')
                     ->searchable()

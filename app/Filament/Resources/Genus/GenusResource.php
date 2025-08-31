@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Genus;
 
+use App\Enums\NavigationGroupEnum;
 use App\Filament\Resources\Genus\Pages\CreateGenus;
 use App\Filament\Resources\Genus\Pages\EditGenus;
 use App\Filament\Resources\Genus\Pages\ListGenus;
@@ -24,7 +25,7 @@ class GenusResource extends Resource
 
     protected static ?string $modelLabel = 'Genres';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Paramètres';
+    protected static string | \UnitEnum | null $navigationGroup = NavigationGroupEnum::classifications;
 
     public static function form(Schema $schema): Schema
     {
