@@ -17,4 +17,11 @@ final class PlantController extends Controller
 
         return PlantResource::collection($plants);
     }
+
+    public function show(int $id): PlantResource
+    {
+        $plant = Plant::with(['family', 'genus', 'type', 'photos'])->findOrFail($id);
+
+        return new PlantResource($plant);
+    }
 }
