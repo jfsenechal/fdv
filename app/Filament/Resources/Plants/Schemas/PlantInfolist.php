@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\Plants\Schemas;
 
-use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
-use LaraZeus\Popover\Infolists\PopoverEntry;
+use Illuminate\Support\HtmlString;
 use LaraZeus\Qr\Facades\Qr;
 
 final class PlantInfolist
@@ -53,21 +52,21 @@ final class PlantInfolist
                     ->dateTime(),
                 TextEntry::make('updated_at')
                     ->dateTime(),
-                PopoverEntry::make('qrCode2')
+                TextEntry::make('qr_preview')
                     ->label('QrCode')
-                    ->trigger('click')
-                    ->placement('right')
-                    ->offset(10)
-                    ->popOverMaxWidth('none')
-                    ->icon('heroicon-o-qr-code')
-                    ->content(fn ($record) => Qr::render(data: $record->qrCodeUrl())),
-                TextEntry::make('qrCode')
-                    ->label('QR Code')
-                    ->getStateUsing(fn ($record) => Qr::render(
-                        data: $record->qrCodeUrl(),
-                        options: $record->qr_options ?? []
-                    ))
-                    ->html(),
+                    ->state(function ($get, $record) {
+                        $url = $record?->qrCodeUrl();
+                        if (! $url) {
+                            return 'Enter a URL to see the QR code preview';
+                        }
+
+                        return new HtmlString(
+                            Qr::render(
+                                data: $url,
+                                options: ['type' => 'svg','size' => '500',]
+                            )
+                        );
+                    }),
             ]);
     }
 }
