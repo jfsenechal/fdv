@@ -30,10 +30,12 @@ final class Plant extends Model
         'family_id', // famille
         'genus_id', // genre
         'type_id', // type
+        'qr_url', // QR code URL
+        'qr_options', // QR code options
     ];
 
     protected $casts = [
-
+        'qr_options' => 'array',
     ];
 
     public function firstPhoto(): ?Photo
@@ -63,7 +65,7 @@ final class Plant extends Model
         return null;
     }
 
-    public function qrCode(): string
+    public function qrCodeUrl(): string
     {
         return 'https://fond-des-vaulx.marche.be/lesplantes/'.$this->id;
     }
