@@ -63,6 +63,11 @@ final class Plant extends Model
         return null;
     }
 
+    public function qrCode(): string
+    {
+        return 'https://fond-des-vaulx.marche.be/lesplantes/'.$this->id;
+    }
+
     /**
      * Get all photos for this plant
      */

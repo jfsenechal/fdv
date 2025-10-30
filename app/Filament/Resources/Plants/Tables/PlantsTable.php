@@ -25,14 +25,20 @@ final class PlantsTable
                     ->sortable()
                     ->label('Nom latin'),
                 TextColumn::make('family.name')
+                    ->label('Famille')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('genus.name')
+                    ->label('Genre')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('type.name')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('qrCode')
+                    ->label('QrCode')
+                    ->getStateUsing(fn ($record) => $record->qrCode())
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
