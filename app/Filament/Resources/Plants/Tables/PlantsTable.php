@@ -37,7 +37,7 @@ final class PlantsTable
                     ->sortable(),
                 TextColumn::make('qrCode')
                     ->label('QrCode')
-                    ->getStateUsing(fn ($record) => $record->qrCode())
+                    ->getStateUsing(fn ($record) => $record->qrCodeUrl())
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
