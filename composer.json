@@ -12,7 +12,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.3",
+        "php": "^8.5",
         "filament/filament": "^4.1",
         "lara-zeus/popover": "^2.0",
         "lara-zeus/qr": "^2.0",
